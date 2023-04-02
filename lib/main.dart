@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './category_meals_screen.dart';
 import './categories_screen.dart';
 
 void main() {
@@ -20,13 +21,13 @@ class MyApp extends StatelessWidget {
         canvasColor: const Color.fromRGBO(255, 254, 229, 1),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
-              bodyLarge: TextStyle(
+              bodyLarge: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
-              bodyMedium: TextStyle(
+              bodyMedium: const TextStyle(
                 color: Color.fromRGBO(20, 51, 51, 1),
               ),
-              titleLarge: TextStyle(
+              titleLarge: const TextStyle(
                 fontSize: 20,
                 fontFamily: 'RobotoCondensed',
                 fontWeight: FontWeight.bold,
@@ -34,6 +35,12 @@ class MyApp extends StatelessWidget {
             ),
       ),
       home: CategoriesScreen(),
+      //initialRoute: '/',      if u want to start the app at a diff page, this is the way
+      routes: {
+        //'/': (ctx) => CategoriesScreen(), this is another way of declaring the homepage
+        '/category-meals': (ctx) => CategoryMealsScreen(),
+        //CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),  //use this if u r using static const
+      },
     );
   }
 }
