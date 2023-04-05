@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'screens/meal_detail_screen.dart';
 
+import './screens/tabs_screen.dart';
+import 'screens/meal_detail_screen.dart';
 import 'screens/category_meals_screen.dart';
 import 'screens/categories_screen.dart';
 
@@ -35,10 +36,12 @@ class MyApp extends StatelessWidget {
               ),
             ),
       ),
-      home: CategoriesScreen(),
-      //initialRoute: '/',      if u want to start the app at a diff page, this is the way
+      home: TabsScreen(),
+      initialRoute:
+          '/', // if u want to start the app at a diff page, this is the way(default is '/')
       routes: {
-        //'/': (ctx) => CategoriesScreen(), this is another way of declaring the homepage
+        //'/': (ctx) => TabsScreen(), //this is another way of declaring the homepage
+        //if home: is used then this route can't be used
         '/category-meals': (ctx) => CategoryMealsScreen(),
         //CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),  //use this if u r using static const
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
