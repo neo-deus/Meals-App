@@ -10,7 +10,21 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Map<String, bool> filters = {
+    'gluten': false,
+    'lactose': false,
+    'vegan': false,
+    'vegetarian': false,
+  };
+
+  void _setFilters(Map<String, bool> filterData) {}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,7 +58,8 @@ class MyApp extends StatelessWidget {
         //'/': (ctx) => TabsScreen(), //this is another way of declaring the homepage
         //if home: is used then this route can't be used
         //'/category-meals': (ctx) => CategoryMealsScreen(),
-        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),  //use this if u r using static const
+        CategoryMealsScreen.routeName: (ctx) =>
+            CategoryMealsScreen(), //use this if u r using static const
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
         FilterScreen.routeName: (ctx) => FilterScreen(),
       },
