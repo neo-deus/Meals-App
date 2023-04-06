@@ -43,8 +43,8 @@ class MyApp extends StatelessWidget {
       routes: {
         //'/': (ctx) => TabsScreen(), //this is another way of declaring the homepage
         //if home: is used then this route can't be used
-        '/category-meals': (ctx) => CategoryMealsScreen(),
-        //CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),  //use this if u r using static const
+        //'/category-meals': (ctx) => CategoryMealsScreen(),
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),  //use this if u r using static const
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
         FilterScreen.routeName: (ctx) => FilterScreen(),
       },
