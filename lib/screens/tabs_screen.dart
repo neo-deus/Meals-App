@@ -1,25 +1,37 @@
 import 'package:flutter/material.dart';
 
+import '../models/meal.dart';
 import '../widgets/main_drawer.dart';
 import './categories_screen.dart';
 import './favorites_screen.dart';
 
 class TabsScreen extends StatefulWidget {
+  final List<Meal> favoriteMeals;
+
+  TabsScreen(this.favoriteMeals);
+
   @override
   State<TabsScreen> createState() => _TabsScreenState();
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  final List<Map<String, dynamic>> _pages = [
-    {
-      'title': 'Categories',
-      'page': CategoriesScreen(),
-    },
-    {
-      'title': 'Your Favorites',
-      'page': FavoritesScreen(),
-    },
-  ];
+  late List<Map<String, dynamic>> _pages;
+
+  @override
+  void initState() {
+    _pages = [
+      {
+        'title': 'Categories',
+        'page': CategoriesScreen(),
+      },
+      {
+        'title': 'Your Favorites',
+        'page': FavoritesScreen(widget.favoriteMeals),
+        //widget is not available here when we initialize our properties,however it is available in build method or initState method
+      },
+    ];
+    super.initState();
+  }
 
   int _selectedPageIndex = 0;
 

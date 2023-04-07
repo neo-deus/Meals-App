@@ -72,23 +72,24 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
     // }).toList();
     //all of these were moved to initState because they will be initialised only once
     return Scaffold(
-        appBar: AppBar(
-          title: Text(categoryTitle),
-          backgroundColor: Theme.of(context).primaryColor,
-        ),
-        body: ListView.builder(
-          itemBuilder: (ctx, index) {
-            return MealItem(
-              id: displayedItems[index].id,
-              title: displayedItems[index].title,
-              imageUrl: displayedItems[index].imageUrl,
-              duration: displayedItems[index].duration,
-              complexity: displayedItems[index].complexity,
-              affordability: displayedItems[index].affordability,
-              removeItem: _removeMeal,
-            );
-          },
-          itemCount: displayedItems.length,
-        ));
+      appBar: AppBar(
+        title: Text(categoryTitle),
+        backgroundColor: Theme.of(context).primaryColor,
+      ),
+      body: ListView.builder(
+        itemBuilder: (ctx, index) {
+          return MealItem(
+            id: displayedItems[index].id,
+            title: displayedItems[index].title,
+            imageUrl: displayedItems[index].imageUrl,
+            duration: displayedItems[index].duration,
+            complexity: displayedItems[index].complexity,
+            affordability: displayedItems[index].affordability,
+            //removeItem: _removeMeal,
+          );
+        },
+        itemCount: displayedItems.length,
+      ),
+    );
   }
 }
